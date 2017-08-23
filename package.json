@@ -1,0 +1,17 @@
+{
+  "name": "highloadcup-1n",
+  "version": "0.1.0",
+  "author": "Maxim Zasorin <maximzasorin@gmail.com>",
+  "private": true,
+  "scripts": {
+    "prod": "NODE_ENV=production node ./app/server.js",
+    "dev": "nodemon ./app/server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4"
+  }
+}

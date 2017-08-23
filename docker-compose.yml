@@ -1,0 +1,21 @@
+version: "3"
+services:
+  prod:
+    build: .
+    image: maximzasorin/highloadcup-1n
+    ports:
+      - "3000:80"
+    volumes:
+      - ./data/full:/tmp/data
+  dev:
+    build: .
+    image: maximzasorin/highloadcup-1n
+    ports:
+      - "3000:80"
+    volumes:
+     - .:/usr/app
+     - ./data/full:/tmp/data
+    tty: true
+    entrypoint:
+     - /bin/bash
+     - ./scripts/expose_dev.sh
