@@ -14,7 +14,7 @@ services:
       - "3000:80"
     volumes:
      - .:/usr/app
-     - ./data/train:/tmp/data
+     - ./data/full:/tmp/data
     tty: true
     entrypoint:
      - /bin/bash

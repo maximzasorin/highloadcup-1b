@@ -4,15 +4,14 @@
   "author": "Maxim Zasorin <maximzasorin@gmail.com>",
   "private": true,
   "scripts": {
-    "prod": "NODE_ENV=production node --max_old_space_size=4096 ./app/server.js",
-    "dev": "nodemon --max_old_space_size=4096 ./app/server.js"
+    "prod": "NODE_ENV=production node --max_old_space_size=4096 --expose-gc ./app/server.js",
+    "dev": "nodemon --max_old_space_size=4096 --expose-gc ./app/server.js"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.4",
-    "unzip2": "^0.2.5"
+    "express": "^4.15.4"
   }
 }

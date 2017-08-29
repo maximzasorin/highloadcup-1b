@@ -2,6 +2,12 @@ FROM node
 
 WORKDIR /usr/app
 
+# Update
+RUN apt-get update -qq
+
+# Install unzip
+RUN apt-get install -y unzip
+
 # Copy app
 COPY . .
 
