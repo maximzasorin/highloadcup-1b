@@ -1,7 +1,7 @@
 const http = require('../http');
 
 module.exports = function (collection, repo) {
-	http.get('/' + collection + '/:id', function (req, res) {
+	http.get(Symbol(collection + '_get'), function (req, res) {
         let entity = repo.get(req.params.id);
 
         if (!entity) {
@@ -11,7 +11,7 @@ module.exports = function (collection, repo) {
         return http.send(res, repo.transform(entity));
     });
 
-    http.post('/' + collection + '/new', function (req, res) {
+    http.post(Symbol(collection + '_new'), function (req, res) {
         let entity = repo.parse(req.body);
 
         if (!entity) {
@@ -23,7 +23,7 @@ module.exports = function (collection, repo) {
         return http.empty(res);
     });
 
-    http.post('/' + collection + '/:id', function (req, res) {
+    http.post(Symbol(collection + '_update'), function (req, res) {
         let entity = repo.get(req.params.id);
 
         if (!entity) {

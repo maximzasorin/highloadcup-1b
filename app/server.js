@@ -32,4 +32,5 @@ require('./controllers/locations')();
 require('./controllers/users')();
 require('./controllers/visits')();
 
+// Expose server
 http.listen();
