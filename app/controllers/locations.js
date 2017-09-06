@@ -2,10 +2,10 @@ const repo = require('../repo/locations'),
     http = require('../http'),
     controller = require('./controller');
 
-module.exports = function (app) {
-    controller(app, 'locations', repo);
+module.exports = function () {
+    controller('locations', repo);
 
-    app.get('/locations/:id/avg', function (req, res) {
+    http.get('/locations/:id/avg', function (req, res) {
         let location = repo.get(req.params.id);
 
         if (!location) {

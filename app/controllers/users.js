@@ -2,10 +2,10 @@ const repo = require('../repo/users'),
     http = require('../http'),
     controller = require('./controller');
 
-module.exports = function (app) {
-    controller(app, 'users', repo);
+module.exports = function () {
+    controller('users', repo);
 
-    app.get('/users/:id/visits', function (req, res) {
+    http.get('/users/:id/visits', function (req, res) {
     	let user = repo.get(req.params.id);
 
     	if (!user) {

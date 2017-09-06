@@ -1,12 +1,7 @@
-const express = require('express'),
-    bodyParser = require('body-parser'),
-    hlcup = require('./hlcup'),
+const hlcup = require('./hlcup'),
     data = require('./data'),
     util = require('./util'),
     http = require('./http');
-
-const PORT = 80;
-const HOST = '0.0.0.0';
 
 hlcup.parseOptions();
 
@@ -32,21 +27,9 @@ hlcup.loadData(function (collection, entities, path) {
     }
 });
 
-// Expose server
-const app = express();
-
-// Body parser
-app.use(bodyParser.json());
-
 // Routes
-require('./controllers/locations')(app);
-require('./controllers/users')(app);
-require('./controllers/visits')(app);
+require('./controllers/locations')();
+require('./controllers/users')();
+require('./controllers/visits')();
 
-// Default route
-app.use(function (req, res, next) {
-    return http.s404(res);
-});
-
-// Listen
-app.listen(PORT, HOST);
+http.listen();
