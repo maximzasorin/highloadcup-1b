@@ -1,7 +1,7 @@
 const hlcup = require('./hlcup'),
-    data = require('./data'),
+    storage = require('./storage'),
     util = require('./util'),
-    http = require('./http');
+    api = require('./api');
 
 hlcup.parseOptions();
 
@@ -22,15 +22,10 @@ hlcup.loadData(function (collection, entities, path) {
         return;
     }
 
-    if (data.insertBatch(collection, entities)) {
+    if (storage.insertBatch(collection, entities)) {
         console.log(entities.length + ' inserted into ' + collection + ' // ' + path);
     }
 });
 
-// Routes
-require('./controllers/locations')();
-require('./controllers/users')();
-require('./controllers/visits')();
-
 // Expose server
-http.listen();
+api.listen();

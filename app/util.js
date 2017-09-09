@@ -6,7 +6,7 @@ Util.prototype.round = function (value) {
     return Math.round(value * 100000) / 100000;
 };
 
-Util.prototype._getTimeFromAge = function (age) {
+Util.prototype.calculateTimeFromAge = function (age) {
 	let date = new Date(global.NOW);
     date.setHours(0);
     date.setMinutes(0);
@@ -22,7 +22,7 @@ Util.prototype.getTimeFromAge = function (age) {
 
 Util.prototype.init = function () {
 	for (let year = 0; year < 150; year++) {
-		timeOfAge.set(year.toString(), this._getTimeFromAge(year));
+		timeOfAge.set(year.toString(), this.calculateTimeFromAge(year));
 	}
 }
 
